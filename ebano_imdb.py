@@ -1,6 +1,7 @@
 from utils_model.BertModelWrapper import BertModelWrapper
-import explainer
-
+import sys
+sys.path.append('../')
+from TextEBAnoExpress import explainer
 import re
 import os
 import keras
@@ -12,21 +13,21 @@ import time
 
 #configuration
 
-'''model_path = "saved_models/bert_imdb"
+model_path = "saved_models/bert_imdb"
 dataset_path = "datasets/df_test.csv"
 batch_size = 128
 start_index=0
 end_index=99
 text_id = "text"
-label_id = "label"'''
+label_id = "label"
 
-model_path = "saved_models/bert_agnews"
+'''model_path = "saved_models/bert_agnews"
 dataset_path = "datasets/agnews.csv"
 batch_size = 128
 start_index=0
 end_index=99
 text_id = "Description"
-label_id = "Class Index"
+label_id = "Class Index"'''
 
 
 def load_dataset_from_csv(dataset_path):
@@ -38,7 +39,7 @@ if __name__ == "__main__":
 
     model_import_start = time.time()
 
-    model_wrapper = BertModelWrapper.BertModelWrapper(model_path,batch_size=batch_size)
+    model_wrapper = BertModelWrapper(model_path,batch_size=batch_size)
     df = load_dataset_from_csv(dataset_path)
 
     print(f"Dataset imported time {time.time() - model_import_start}")
