@@ -4,7 +4,7 @@ import scipy as sp
 from utils_model.BertModelWrapper import BertModelWrapper
 import pandas as pd
 import time
-from utils_shap.report_shap import ShapReport
+from utils.report_shap import ShapReport
 
 #Configuration
 
