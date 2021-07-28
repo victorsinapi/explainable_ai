@@ -2,7 +2,7 @@ from lime.lime_text import LimeTextExplainer
 import numpy as np
 from utils_model.BertModelWrapper import BertModelWrapper
 import pandas as pd
-from utils_lime.report_lime import LimeReport
+from utils.report_lime import LimeReport
 import time
 
 #Configuration
