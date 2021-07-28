@@ -75,5 +75,23 @@ class LimeReport:
                                          "local_explanations": local_explanations_dict}
 
         return local_explanation_report_dict
+    
+    def loadFromJson(self, path):
+        with open(path) as explanation_report_json:
+            limeReportDict = json.load(explanation_report_json)
+            self.report_id = limeReportDict["metadata"]["report_id"]
+            self.execution_time = limeReportDict["metadata"]["execution_time"]
+            self.num_features = limeReportDict["metadata"]["num_features"]
+            self.num_samples = limeReportDict["metadata"]["num_samples"]
+
+            self.original_text = limeReportDict["input_info"]["original_text"]
+            self.original_prediction = limeReportDict["input_info"]["original_prediction"]
+            self.original_label = limeReportDict["input_info"]["original_label"]
+
+            self.explanation = limeReportDict["local_explanations"]["local_explanations"]
+            self.prediction_without_positive = limeReportDict["local_explanations"]["prediction_without_positive"]
+            self.prediction_without_negative = limeReportDict["local_explanations"]["prediction_without_negative"]
+        return
+
 
 

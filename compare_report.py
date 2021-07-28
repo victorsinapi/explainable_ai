@@ -21,17 +21,16 @@ if __name__ == "__main__":
 
         codice=str(i)
 
-        lime_local_explanation_path ="expLime/25per/local_explanation_report_10per_"+str(i)+".json"
-        ebano_local_explanation_path = "expEbano/imdb/local_explanation_report_"+str(i)+".json"
-        shap_local_explanation_path = "expShap/permutazioni/local_explanation_report_"+str(i)+".json"
+        lime_local_explanation_path ="outputs/lime/lime_imdb/local_explanation_report_25per_"+str(i)+".json"
+        ebano_local_explanation_path = "outputs/20201117_bert_model_imdb_reviews_exp_0/local_explanations_experiments/20210727_234422/local_explanations/local_explanation_report_"+str(i)+".json"
+        shap_local_explanation_path = "outputs/shap/shap_imdb/local_explanation_report_"+str(i)+".json"
+        comparator = comparator_imdb.Comparator(code=codice,array_csv=array_csv,index=indice)
 
-        comparator = comparator.Comparator(code=codice,array_csv=array_csv,index=indice)
+        comparator.fit(comparator_imdb.LIME, lime_local_explanation_path)
 
-        comparator.fit(comparator.LIME, lime_local_explanation_path)
-
-        comparator.addExplanation(comparator.LIME, lime_local_explanation_path )
-        comparator.addExplanation(comparator.EBANO,ebano_local_explanation_path)
-        comparator.addExplanation(comparator.SHAP,shap_local_explanation_path)
+        comparator.addExplanation(comparator_imdb.LIME, lime_local_explanation_path )
+        comparator.addExplanation(comparator_imdb.EBANO,ebano_local_explanation_path)
+        comparator.addExplanation(comparator_imdb.SHAP,shap_local_explanation_path)
 
         comparator.save_as_html()
         indice = indice +1

@@ -1,11 +1,12 @@
 import json
 import os
-
+import sys
 from utils import comparation_template
 from utils import report_lime
 from utils import report_shap
 
-#from EbanoExplainer import LocalExplanationReport
+sys.path.append('../')
+from TextEBAnoExpress.explainer import LocalExplanationReport
 
 LIME = "Lime"
 EBANO = "Ebano"
@@ -55,6 +56,7 @@ class Comparator:
             self.limeReport.loadFromJson(path)
         elif(explainer==EBANO):
             self.ebanoReport = LocalExplanationReport()
+            print("#####",path)
             self.ebanoReport.fit_local_explanation_report_from_json_file(path)
         elif (explainer == SHAP):
             self.shapReport = report_shap.ShapReport()
