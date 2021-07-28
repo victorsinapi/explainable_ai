@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
                    original_text,
                    int(original_label),
-                   original_prediction[0].tolist(),
+                   original_prediction,
 
                    values.tolist(),
                    data.tolist(),
