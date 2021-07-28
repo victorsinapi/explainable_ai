@@ -8,7 +8,7 @@ import time
 #Configuration
 
 
-'''#exemple for binary classification on sentiment analysis
+#exemple for binary classification on sentiment analysis
 model_path = "saved_models/bert_imdb"
 dataset_path = "datasets/df_test.csv"
 batch_size = 128
@@ -20,9 +20,9 @@ features_percentage = 0.25
 num_samples = 5000
 output_path = "outputs/lime/lime_imdb"
 def getLabel(prediction):
-    return 1'''
+    return 1
 
-#exemple for multiclass classification
+'''#exemple for multiclass classification
 model_path = "saved_models/bert_agnews"
 dataset_path = "datasets/agnews.csv"
 batch_size = 128
@@ -34,7 +34,7 @@ features_percentage = 0.25
 num_samples = 5000
 output_path = "outputs/lime/lime_agnews"
 def getLabel(prediction):
-    return int(np.asarray(prediction).argmax())
+    return int(np.asarray(prediction).argmax())'''
 
 
 
@@ -44,11 +44,6 @@ def bert_classifier(texts):
     this is classifier.predict_proba.'''
     # predictions = model_wrapper.predict(texts)
     return model_wrapper.predict(texts)
-
-
-def perturbedTextPrediction(exp):
-    pass
-
 
 def load_dataset_from_csv(dataset_path):
     df = pd.read_csv(dataset_path)

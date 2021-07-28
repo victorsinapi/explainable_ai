@@ -8,7 +8,7 @@ from utils.report_shap import ShapReport
 
 #Configuration
 
-'''#exemple for binary classification on sentiment analysis
+#exemple for binary classification on sentiment analysis
 alghoritm = "permutation"
 model_path = "saved_models/bert_imdb"
 dataset_path = "datasets/df_test.csv"
@@ -19,9 +19,9 @@ label_id = "label"
 def getLabel(prediction):
     return 1
 percentage_of_tokens = 0.10
-output_path = "outputs/shap/shap_imdb"'''
+output_path = "outputs/shap/shap_imdb"
 
-#exemple for multiclass classification
+'''#exemple for multiclass classification
 alghoritm = "permutation"
 model_path = "saved_models/bert_agnews"
 dataset_path = "datasets/agnews.csv"
@@ -32,7 +32,7 @@ label_id = "Class Index"
 def getLabel(prediction):
     return int(np.asarray(prediction).argmax())
 percentage_of_tokens = 0.10
-output_path = "outputs/shap/shap_agnews"
+output_path = "outputs/shap/shap_agnews"'''
 
 
 
